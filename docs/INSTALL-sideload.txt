@@ -1,0 +1,20 @@
+StarMap-For-git — MSIX sideload notes
+=====================================
+
+These notes describe optional sideload of a signed MSIX build. The open-source
+tree ships source only; MSIX/CER binaries are not included.
+
+Build the host first (see README), then package with your own certificate if needed.
+
+One-time (elevated PowerShell as Admin), after you have produced:
+  dist/StarMap-For-git.msix
+  dist/StarMap-For-git.cer
+
+  certutil -addstore TrustedPeople ".\dist\StarMap-For-git.cer"
+  certutil -addstore Root ".\dist\StarMap-For-git.cer"
+  Add-AppxPackage -Path ".\dist\StarMap-For-git.msix"
+
+Or: Settings → For developers → Developer Mode ON, then Add-AppxPackage after trusting the .cer.
+
+Host bridge
+- SPA may post {type:'openAppsFolder'} (and createDesktopShortcut aliases) to the WebView2 host.

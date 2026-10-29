@@ -1,0 +1,31 @@
+# Build / publish
+**/bin/
+**/obj/
+**/publish/
+dist/host/
+*.exe
+*.dll
+*.pdb
+*.msix
+*.appx
+*.cer
+*.msi
+
+# Packaging noise
+zip_chunks/
+*_desk_chunk_*
+*.user
+*.suo
+.vs/
+.idea/
+
+# Huge promo / dumps
+*.mp4
+**/forgejo*.json
+**/gitea*.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
